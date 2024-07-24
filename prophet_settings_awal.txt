@@ -1,0 +1,24 @@
+Scenario.endTime = 43200
+Scenario.simulateConnections = false
+
+Group.movementModel = StationaryMovement
+Group.nodeLocation = 0,1
+
+Scenario.name = awal_df
+
+Events.nrof = 2
+Events1.class = StandardEventsReader
+Events1.filePath = Haggle3-Infocom5.csv
+
+Group.nrofHosts = 41
+
+Events2.class = MessageEventGenerator
+# change interval to have more or less messages, see javadocs for more information.
+Events2.interval = 119,120
+Events2.size = 1k
+# range of message source/destination addresses
+Events2.hosts = 0, 40
+Events2.prefix = M
+
+Group.router = DecisionEngineRouter
+DecisionEngineRouter.decisionEngine = ProphetDecisionEngineDF
